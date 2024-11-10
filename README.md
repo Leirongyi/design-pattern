@@ -188,44 +188,6 @@
 2. 具体原型类（ConcretePrototype）：实现了原型接口的具体类，负责实现克隆方法。
 3. 客户端（Client）：创建新对象时，通过原型对象复制来获得新对象。
 
-示例中，我们定义了一个原型接口 `Prototype`，并实现了具体原型类 `ConcretePrototype`，该类实现了克隆方法。在客户端代码中，我们创建了一个原型对象并通过克隆方法复制出一个新对象。
-
-```java
-// 原型接口
-interface Prototype {
-    Prototype clone();
-}
-
-// 具体原型类
-class ConcretePrototype implements Prototype {
-    private String property;
-
-    public ConcretePrototype(String property) {
-        this.property = property;
-    }
-
-    @Override
-    public Prototype clone() {
-        return new ConcretePrototype(this.property);
-    }
-
-    public String getProperty() {
-        return property;
-    }
-}
-
-// 客户端
-public class Client {
-    public static void main(String[] args) {
-        Prototype prototype = new ConcretePrototype("property value");
-        Prototype clone = prototype.clone();
-
-        System.out.println("Original Object Property: " + ((ConcretePrototype) prototype).getProperty());
-        System.out.println("Cloned Object Property: " + ((ConcretePrototype) clone).getProperty());
-    }
-}
-```
-
 ## 行为型模式（11）：运行程序
 行为型设计模式主要关注对象之间的通信和职责分配，描述了对象之间的相互作用和责任分配方式。
 
